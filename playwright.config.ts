@@ -26,10 +26,19 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
+     baseURL: 'https://www.saucedemo.com',
+
+    /* Browser settings shared by all browsers */
+    headless: true,
+    /* Limit how long a single action (click, fill...) or navigation can hang */
+    actionTimeout: 10_000,
+    navigationTimeout: 30_000,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    /* Keep a screenshot and video only when a test fails */
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
